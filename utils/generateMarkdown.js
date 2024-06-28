@@ -1,20 +1,49 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+import { generateLicense } from "./generateLicense.js";
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
+function renderScreenShot(data) {
+  return `## Screenshots
+    ${data
+      .map(({ screenshot, description }) => {
+        return `
+${description}
+![${description}](${screenshot})
 `;
+      })
+      .join("\r\n")}
+    `;
 }
 
-module.exports = generateMarkdown;
+// TODO: Create a function to generate markdown for README
+export function generateMarkdown(data) {
+  return `
+  # ${data.projTitle}
+  ## Description
+  ${data.projDescription}  
+    
+  **Link to deployed application:** [${data.link}](${data.link})
+  
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage) ${data.screenshots ? "\n  - [Screenshots](#screenshots)" : ""}
+  - [Contributing](#contributing)
+  - [Questions](#questions)
+  - [License](#license)
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.instructions}
+  ${data.confirmScreenshot ? renderScreenShot(data.screenshots) : ""}
+  ## Contributing
+  ${data.contributing}
+  
+  ## Questions
+  If you have any additional questions, please feel free to contact me at:  
+  E-mail: ${data.email}  
+  Github: [${data.username}](https://github.com/${data.username})
+  
+  ## License
+  ${generateLicense(data.license)}
+  `;
+}
