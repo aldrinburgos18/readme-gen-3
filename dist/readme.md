@@ -22,19 +22,19 @@ Open terminal, install dependencies using the command 'npm_install'.
 
 Open terminal then run index.js using node.
 
-![Terminal](./dist/img/screenshot1.gif)
+![Terminal](./img/screenshot1.gif)
 
 Answer on screen prompt to generate values for README.
 
-![Prompt](./dist/img/screenshot2.gif)
+![Prompt](./img/screenshot2.gif)
 
 Preview of finished product:
 
-![Fininshed Product](./dist/img/screenshot3.gif)
+![Fininshed Product](./img/screenshot3.gif)
 
 Clicking on "more information" directs user to license information page.
 
-![License](./dist/img/screenshot4.gif)
+![License](./img/screenshot4.gif)
 
 ## Contributing
 

@@ -10,36 +10,72 @@ const questions = [
     type: "input",
     name: "username",
     message: "Enter your Github username: \n",
+    validate: (usernameInput) => {
+      if (usernameInput) {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "email",
     message: "Please enter your e-mail address: \n",
+    validate: function (email) {
+      // Regex mail check (return true if valid mail)
+      return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+        email
+      );
+    },
   },
   {
     type: "input",
     name: "projTitle",
     message: "Enter the title of your project: \n",
+    validate: (titleInput) => {
+      if (titleInput) {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "link",
     message: "Enter the link to your project's Github repository: \n",
+    validate: (linkInput) => {
+      if (linkInput) {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "projDescription",
     message: "Please provide a brief description of the project: \n",
+    validate: (descInput) => {
+      if (descInput) {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "installation",
     message: "Give a brief explanation on how to install your project: (N/A if no installation needed) \n",
+    validate: (installationInput) => {
+      if (installationInput) {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "instructions",
     message: "Provide instructions for use: \n",
+    validate: (instructionsInput) => {
+      if (instructionsInput) {
+        return true;
+      }
+    },
   },
   {
     type: "list",
@@ -51,6 +87,11 @@ const questions = [
     type: "input",
     name: "contributing",
     message: "Provide contributing guidelines: \n",
+    validate: (contributingInput) => {
+      if (contributingInput) {
+        return true;
+      }
+    },
   },
   {
     type: "confirm",
@@ -91,11 +132,21 @@ function addScreenShot(data) {
         type: "input",
         name: "screenshot",
         message: "Enter your screenshot's relative path without single quotes: (ex. './assets/img/screenshot1.png') \n",
+        validate: (screenshotInput) => {
+          if (screenshotInput) {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         name: "scDescription",
         message: "Enter a brief description about this screenshot: \n",
+        validate: (screenshotDescriptionInput) => {
+          if (screenshotDescriptionInput) {
+            return true;
+          }
+        },
       },
       {
         type: "confirm",
